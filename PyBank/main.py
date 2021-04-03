@@ -12,6 +12,7 @@ Months = []
 #open budget data as csvfile
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
+    
     for row in csvreader:
         #Total number of months included in the dataset
         TotalMonths = len(Months(csvreader))
