@@ -12,4 +12,10 @@ with open(csvpath) as csvfile:
 
     #read header row
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+
+    #Count Number Months
+    Months = list(csvreader)
+    Total_Months = len(Months)
+    print(Total_Months)
+
+    #Sum of "profit/loses" over the entire period
