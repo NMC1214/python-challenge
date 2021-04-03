@@ -40,7 +40,9 @@ with open(csvpath, 'r') as csv_file:
 
     #return smallest value
     Largest_Loss = min(Profit_floats)
-    print("Biggest Loss: ",Largest_Loss)
+    print("Biggest Loss: ", line[0]," ",Largest_Loss)
+
+    
 
 
 
