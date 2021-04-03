@@ -15,10 +15,13 @@ with open(csvpath, 'r') as csv_file:
 
     #Create list of Profit/Losses Values
     Sum_Profit = []
+    Months = []
     for line in csv_reader:
  
         Sum_Profit.append(line[1])
         Profit_floats = [float(item) for item in Sum_Profit]
+
+        Months.append(line[0])
 
     #Print first profit value
     print(Profit_floats[0])
@@ -36,13 +39,13 @@ with open(csvpath, 'r') as csv_file:
 
     #return max value
     Largest_Profit = max(Profit_floats)
-    print("Largest Profit Value: ",Largest_Profit)
+    print("Largest Profit Value: ", line[0], " ", Largest_Profit)
 
     #return smallest value
     Largest_Loss = min(Profit_floats)
     print("Biggest Loss: ", line[0]," ",Largest_Loss)
 
-    
+
 
 
 
