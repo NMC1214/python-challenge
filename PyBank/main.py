@@ -4,47 +4,42 @@ import csv
 
 #set path for file
 csvpath = os.path.join("PyBank","Resources","budget_data.csv")
-print(csvpath)
 
 #open budget data as csvfile
-with open(csvpath, 'r') as csv_file:
-    csv_reader = csv.reader(csv_file)
+with open(csvpath) as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=",")
 
-    #Skip header row
-    next(csv_reader)
+    csv_header = next(csv_reader)
 
-    #Create list of Profit/Losses Values
-    Sum_Profit = []
     Months = []
-    for line in csv_reader:
- 
-        Sum_Profit.append(line[1])
-        Profit_floats = [float(item) for item in Sum_Profit]
+    Profit = []
+    Profit_Change = []
 
-        Months.append(line[0])
+    for row in csv_reader:
 
-    #Print first profit value
-    print(Profit_floats[0])
+        Months.append(row[0])
 
-    #print last profit value
-    print(Profit_floats[85])
+        Profit.append(int(row[1]))
 
-    print(type(Profit_floats[1]))
+    Total_Months = len(Months)
+    print("Total Months: ", Total_Months)
 
-    print("Total Months: ",len(Profit_floats))
+    Total_Profit = sum(Profit)
+    print("Total: $", Total_Profit)
 
-    #net total amount of "Profit/Losses" over the entire period
-    Sum_Values = sum(Profit_floats)
-    print("Total: ",Sum_Values)
+    for i in range(len(Profit)-1):
+        Profit_Change.append(Profit[i+1]-Profit[i])
 
-    #return max value
-    Largest_Profit = max(Profit_floats)
-    print("Largest Profit Value: ", line[0], " ", Largest_Profit)
+    Average_Change = sum(Profit_Change) / len(Profit_Change)
 
-    #return smallest value
-    Largest_Loss = min(Profit_floats)
-    print("Biggest Loss: ", line[0]," ",Largest_Loss)
+    print("Average Change: $", Average_Change)
 
+    Great_Inc = max(Profit_Change)
+    print("Greatest Increase in Profits: ", "($",Great_Inc,")")
+
+    Great_Loss = min(Profit_Change)
+    print("Greatest Decrease in Profits: ", "($", Great_Loss, ")")
+        
 
 
 
