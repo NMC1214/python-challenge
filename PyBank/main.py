@@ -23,7 +23,7 @@ with open(csvpath) as csv_file:
         #add first column to Month list
         Months.append(row[0])
 
-        #add profit/loss to pofit list
+        #add profit/loss to profit list
         Profit.append(int(row[1]))
 
     #number items in months list
