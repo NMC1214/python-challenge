@@ -56,7 +56,19 @@ with open(csvpath) as csv_file:
     max_Dec_index = Profit_Change.index(Great_Loss)
     print("Greatest Decrease in Profits: ", Months[(max_Dec_index + 1)], "($", Great_Loss, ")")
 
-        
+    text_path = os.path.join("PyBank","Analysis", "Financial_Analysis.txt")
+    f = open(text_path, "w")
+
+    print("Financial Analysis", file=f)
+    print("---------------------------------", file=f)
+    print(("Total Months: ", Total_Months), file=f)
+    print(("Total: $", Total_Profit), file=f)
+    print(("Average Change: $", Average_Change), file=f)
+    print(("Greatest Increase in Profits: ", Months[(max_Inc_index + 1)], "($",Great_Inc,")"), file=f)
+    print(("Greatest Decrease in Profits: ", Months[(max_Dec_index + 1)], "($", Great_Loss, ")"), file=f)
+
+    f.close()
+
 
 
 
