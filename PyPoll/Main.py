@@ -17,10 +17,6 @@ with open(csvpath) as csv_file:
     Voter_ID = []
     County = []
     Candidate = []
-    Khan_Votes = []
-    Correy_Votes = []
-    Li_Votes = []
-    OTool_Votes = []
 
     #loop for each row in csv file
     for row in csv_reader:
@@ -30,11 +26,36 @@ with open(csvpath) as csv_file:
         County.append(row[1])
         Candidate.append(row[2]) 
 
-    Num_Khan = Candidate.count("Khan")
-    print(Num_Khan)
-
     Total_Votes = len(Voter_ID)
     print("Total Votes: ", Total_Votes)
+
+    #print Khan Stats
+    Num_Khan = Candidate.count("Khan")
+    Khan_Pct = (Num_Khan / Total_Votes)
+    Khan_Pct_Format = "{:.2%}".format(Khan_Pct)
+    print("Khan: ", Khan_Pct_Format,  "(", Num_Khan, ")")
+
+    #print Correy Stats
+    Num_Correy = Candidate.count("Correy")
+    Correy_Pct = (Num_Correy / Total_Votes)
+    Correy_Pct_Format = "{:.3%}".format(Correy_Pct)
+    print("Correy: ", Correy_Pct_Format,  "(", Num_Correy, ")")    
+
+    #print Li Stats
+    Num_Li = Candidate.count("Li")
+    Li_Pct = (Num_Li / Total_Votes)
+    Li_Pct_Format = "{:.3%}".format(Li_Pct)
+    print("Li: ", Li_Pct_Format,  "(", Num_Li, ")")    
+
+    #print O'Tooley Stats
+    Num_Otool = Candidate.count("O'Tooley")
+    Otool_Pct = (Num_Otool / Total_Votes)
+    Otool_Pct_Format = "{:.3%}".format(Otool_Pct)
+    print("O'Tooley: ", Otool_Pct_Format,  "(", Num_Otool, ")")  
+
+    #Print winner with max votes
+    
+
 
 
     Unique_Candidate = []
@@ -43,7 +64,6 @@ with open(csvpath) as csv_file:
         if x not in Unique_Candidate:
                 Unique_Candidate.append(x)
 
-    print(Unique_Candidate)
 
         
     
