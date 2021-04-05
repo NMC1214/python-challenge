@@ -4,7 +4,6 @@ import csv
 
 #set path for file
 csvpath = os.path.join("PyPoll","Resources","election_data.csv")
-print(csvpath)
 
 #open budget data as csvfile
 with open(csvpath) as csv_file:
@@ -26,6 +25,7 @@ with open(csvpath) as csv_file:
         County.append(row[1])
         Candidate.append(row[2]) 
 
+    #count number items in voter id list
     Total_Votes = len(Voter_ID)
     print("Total Votes: ", Total_Votes)
 
@@ -56,8 +56,6 @@ with open(csvpath) as csv_file:
     #Print winner with max votes
     
 
-
-
     Unique_Candidate = []
 
     for x in Candidate:
@@ -65,6 +63,13 @@ with open(csvpath) as csv_file:
                 Unique_Candidate.append(x)
 
 
-        
+    text_path = os.path.join("PyPoll","Analysis", "Election_Analysis.txt")
+    f = open(text_path, "w")
+
+    print("Election Results", file=f)
+    print("---------------------------------", file=f)
+    
+
+    f.close()    
     
     
