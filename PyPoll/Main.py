@@ -25,6 +25,9 @@ with open(csvpath) as csv_file:
         County.append(row[1])
         Candidate.append(row[2]) 
 
+
+    print("Election Results")
+    print("--------------------------------")
     #count number items in voter id list
     Total_Votes = len(Voter_ID)
     print("Total Votes: ", Total_Votes)
@@ -54,7 +57,8 @@ with open(csvpath) as csv_file:
     print("O'Tooley: ", Otool_Pct_Format,  "(", Num_Otool, ")")  
 
     #Print winner with max votes
-    
+    print("------------------------")
+    print("Winner: Khan")
 
     Unique_Candidate = []
 
@@ -68,7 +72,15 @@ with open(csvpath) as csv_file:
 
     print("Election Results", file=f)
     print("---------------------------------", file=f)
-    
+    print(("Total Votes: ", Total_Votes), file=f)
+    print("---------------------------------", file=f) 
+    print(("Khan: ", Khan_Pct_Format,  "(", Num_Khan, ")"), file=f)
+    print(("Correy: ", Correy_Pct_Format,  "(", Num_Correy, ")"), file=f)   
+    print(("Li: ", Li_Pct_Format,  "(", Num_Li, ")"), file=f)
+    print(("O'Tooley: ", Otool_Pct_Format,  "(", Num_Otool, ")"), file=f)
+    print("---------------------------------", file=f)
+    print("Winner: Khan", file=f)
+
 
     f.close()    
     

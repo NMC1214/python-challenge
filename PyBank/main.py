@@ -26,6 +26,9 @@ with open(csvpath) as csv_file:
         #add profit/loss to profit list
         Profit.append(int(row[1]))
 
+    print("Financial Analysis")
+    print("-------------------")
+    
     #number items in months list
     Total_Months = len(Months)
     print("Total Months: ", Total_Months)
@@ -41,7 +44,7 @@ with open(csvpath) as csv_file:
         Profit_Change.append(Profit[i+1]-Profit[i])
 
     #divide total of profit change list by items in the list to tell average
-    Average_Change = sum(Profit_Change) / len(Profit_Change)
+    Average_Change = round((sum(Profit_Change) / len(Profit_Change)), 2)
     print("Average Change: $", Average_Change)
 
     #find largest change in list
